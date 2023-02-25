@@ -1,0 +1,17 @@
+checkpoint_frequency: 4
+data_dir: data/
+data_size: -1
+epochs: 64
+learning_rate: 0.025
+model_dir: models/skipgram/
+model_name: skipgram
+optimizer: Adam
+pre_trained_model_path: external/word2vec/models/skipgram_blog/best_val_model_5.67.pt
+pre_trained_vocab_path: external/word2vec/models/skipgram_blog/vocab.pt
+shuffle: true
+train_batch_size: 128
+train_steps: -1
+use_cuda: true
+val_batch_size: 128
+val_steps: -1
+vocab_min_word_freq: 5
