@@ -44,7 +44,7 @@ def main():
     #         download_thumbnail(video_id, filename)
     #         print(f'{i + 1}/{data_len} done')
     #         sleep(0.1)
-    download_csv('data/CAvideos.csv', 0, "data/test")
+    download_csv('data/USvideos.csv', 0, "data/thumnailUS")
 
     pass
 
