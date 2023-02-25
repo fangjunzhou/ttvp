@@ -1,12 +1,14 @@
 import gradio as gr
+import title_predict_api
+import cv_api
 
 
 def title_predict(Title):
-    return "ooo " + Title + "!"
+    return title_predict_api.title_predict_view(Title)
 
 
 def image_predict(Image):
-    return "sfasdfas"
+    return cv_api.predict_image(Image)
 
 
 text = gr.Interface(
