@@ -14,7 +14,7 @@ class VGGFeatures(nn.Module):
     def __init__(self):
         super(VGGFeatures, self).__init__()
         # self.chosen_features = [0, 5, 10, 19, 28]
-        self.model = models.vgg19(weights=VGG19_Weights.DEFAULT).features[:36]
+        self.model = models.vgg19(weights=VGG19_Weights.DEFAULT).features[:37]
 
     def forward(self, x):
         # features = []
@@ -33,19 +33,17 @@ class ContentToViews(nn.Module):
         # The input is the output of VGG
         # The output is a scalar value
         self.other_layers = nn.Sequential(
-            nn.Linear(512 * 14 * 14, 1024),
+            nn.Linear(512 * 7 * 7, 4096),
+            nn.ReLU(),
+            nn.Linear(4096, 1024),
             nn.ReLU(),
             nn.Linear(1024, 1024),
             nn.ReLU(),
-            nn.Linear(1024, 1024),
+            nn.Linear(1024, 512),
             nn.ReLU(),
-            nn.Linear(1024, 1024),
+            nn.Linear(512, 128),
             nn.ReLU(),
-            nn.Linear(1024, 1024),
-            nn.ReLU(),
-            nn.Linear(1024, 1024),
-            nn.ReLU(),
-            nn.Linear(1024, 1)
+            nn.Linear(128, 1)
         )
 
 
