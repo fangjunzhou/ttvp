@@ -10,9 +10,9 @@ from torchvision.utils import save_image
 import time
 
 
-class VFFFeatures:
+class VGGFeatures(nn.Module):
     def __init__(self):
-        super(VFFFeatures, self).__init__()
+        super(VGGFeatures, self).__init__()
         # self.chosen_features = [0, 5, 10, 19, 28]
         self.model = models.vgg19(weights=VGG19_Weights.DEFAULT).features[:37]
 
@@ -23,6 +23,16 @@ class VFFFeatures:
         #     if i in self.chosen_features:
         #         features.append(x)
         return self.model.forward(x)
+
+
+class ContentLoss(nn.Module):
+    def __init__(self, target, ):
+        super(ContentLoss, self).__init__()
+        self.vgg = VGGFeatures()
+
+    def forward(self, input):
+        self.loss = F.mse_loss(input, self.target)
+        return input
 
 
 def main():
