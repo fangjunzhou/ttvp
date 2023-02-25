@@ -1,3 +1,4 @@
 gradio
 pandas
 Pillow
+opencv-python
