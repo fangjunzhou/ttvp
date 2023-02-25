@@ -1,0 +1,3 @@
+[submodule "external/word2vec"]
+	path = external/word2vec
+	url = git@github.com:Fangjun-Zhou/word2vec-pytorch.git
