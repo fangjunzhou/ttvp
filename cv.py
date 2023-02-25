@@ -28,18 +28,19 @@ class VGGFeatures(nn.Module):
 class ContentToViews(nn.Module):
     def __init__(self):
         super(ContentToViews, self).__init__()
-        self.vgg = VGGFeatures() # the output shape is (1, 512, 14, 14)
+        self.vgg = VGGFeatures() # the output shape is (1, 512, 7, 7)
         # This is the part that we need to train
         # The input is the output of VGG
         # The output is a scalar value
         self.other_layers = nn.Sequential(
             nn.Linear(512 * 7 * 7, 4096),
+            nn.Dropout(0.2),
             nn.ReLU(),
             nn.Linear(4096, 1024),
-            nn.ReLU(),
-            nn.Linear(1024, 1024),
+            nn.Dropout(0.2),
             nn.ReLU(),
             nn.Linear(1024, 512),
+            nn.Dropout(0.2),
             nn.ReLU(),
             nn.Linear(512, 128),
             nn.ReLU(),
