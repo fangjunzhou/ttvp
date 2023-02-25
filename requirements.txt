@@ -10,6 +10,7 @@ Pillow
 # ------------------------------------------------------------ #
 
 scikit-learn
+opencv-python
 
 # ------------------------------------------------------------ #
 #                            PyTorch                           #
@@ -19,6 +20,8 @@ scikit-learn
 torch
 -f https://download.pytorch.org/whl/cu117
 torchtext
+-f https://download.pytorch.org/whl/cu117
+torchvision
 
 # ------------------------------------------------------------ #
 #                           Frontend                           #
