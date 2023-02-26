@@ -29,12 +29,13 @@ class ContentToViews(nn.Module):
         # The output is a scalar value
         self.other_layers = nn.Sequential(
             nn.Linear(512 * 7 * 7, 4096),
-            nn.Dropout(0.4),
+            nn.Dropout(0.5),
             nn.ReLU(),
             nn.Linear(4096, 1024),
-            nn.Dropout(0.4),
+            nn.Dropout(0.5),
             nn.ReLU(),
             nn.Linear(1024, 512),
+            nn.Dropout(0.4),
             nn.ReLU(),
             nn.Linear(512, 128),
             nn.ReLU(),
