@@ -5,3 +5,4 @@ venv/
 data/
 
 checkpoints.zip
+best_cv.pt
