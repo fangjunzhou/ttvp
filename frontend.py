@@ -1,14 +1,15 @@
 import gradio as gr
 import title_predict_api
 import cv_api
+from si_prefix import si_format
 
 
 def title_predict(Title):
-    return title_predict_api.title_predict_view(Title)
+    return si_format(title_predict_api.title_predict_view(Title), precision=2)
 
 
 def image_predict(Image):
-    return cv_api.predict_image(Image)
+    return si_format(cv_api.predict_image(Image), precision=2)
 
 
 text = gr.Interface(
