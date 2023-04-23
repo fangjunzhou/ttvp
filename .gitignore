@@ -1,8 +1,7 @@
-.idea/
-.vscode/
 venv/
+.data/
+.ipynb_checkpoints/
+__pycache__/
 
 data/
-
-checkpoints.zip
-best_cv.pt
+models/
